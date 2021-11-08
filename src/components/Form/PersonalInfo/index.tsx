@@ -1,5 +1,4 @@
 import React, { FC, Fragment, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import PhoneInput from 'react-phone-input-2';
 import { useTranslation } from 'react-i18next';
@@ -7,6 +6,7 @@ import { setEmailAction, setFirstNameAction, setFormState, setLastNameAction, se
 /**styles */
 import 'react-phone-input-2/lib/style.css';
 import styled from 'styled-components';
+import { IPersonalInfoProps } from '../../../interfaces';
 const InputContainer = styled.div`
   margin-block: 16px;
   background: #ffffff;
@@ -65,7 +65,7 @@ const Subheading = styled.div`
   line-height: 19px;
 `;
 
-const PersonalInfo: FC = () => {
+const PersonalInfo = ({ t, dispatch }: IPersonalInfoProps) => {
   const {
     register,
     formState: { errors, isValid },
@@ -73,19 +73,15 @@ const PersonalInfo: FC = () => {
   } = useForm({
     mode: 'onChange',
   });
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setFormState(isValid));
   }, [isValid, errors]);
 
   const getName = (e: any) => {
-    console.log(e);
     trigger(e.target.name);
     switch (e.target.id) {
       case 'firstName':
-        console.log(e.target.value);
         dispatch(setFirstNameAction(e));
         break;
       case 'lastName':

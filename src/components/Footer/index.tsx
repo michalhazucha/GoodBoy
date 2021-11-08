@@ -76,8 +76,7 @@ const FooterText = styled.p`
   color: #585757;
 `;
 
-const Footer = () => {
-  const { t } = useTranslation();
+const Footer = ({ t }: any) => {
   return (
     <Fragment>
       <LayoutContainer>

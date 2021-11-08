@@ -1,5 +1,4 @@
-import React, { FC, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import Swal from 'sweetalert2';
@@ -74,12 +73,10 @@ const ActionButtons = styled.div`
 `;
 const MySwal = withReactContent(Swal);
 
-const Form = ({ shelters, formData, currentPage }: IFormProps) => {
-  const dispatch = useDispatch();
+const Form = ({ shelters, formData, currentPage, dispatch, t }: IFormProps) => {
   const isValid = useSelector((state: any) => state.state.formData.isValid);
 
   const nextPage = (e: any) => {
-    console.log(typeof e);
     e.preventDefault();
     dispatch(goToNextPage());
   };
@@ -87,7 +84,6 @@ const Form = ({ shelters, formData, currentPage }: IFormProps) => {
     e.preventDefault();
     dispatch(goToPreviousPage());
   };
-  const { t } = useTranslation();
 
   const postData = (e: any) => {
     e.preventDefault();
@@ -104,11 +100,13 @@ const Form = ({ shelters, formData, currentPage }: IFormProps) => {
       .then((response) => {
         if (response.messages[0].type === 'SUCCESS') {
           MySwal.fire({
-            title: <strong>Výborne</strong>,
-            html: <span>{JSON.stringify(response.messages[0].message)}</span>,
+            title: <strong>{t('success_response_header')}</strong>,
+            html: <span>{t(`${JSON.stringify(response.messages[0].message)}`)}</span>,
             icon: 'success',
             buttonsStyling: true,
             confirmButtonColor: ' #c4794f',
+          }).then(() => {
+            window.location.href = '/';
           });
         }
       })
@@ -131,21 +129,21 @@ const Form = ({ shelters, formData, currentPage }: IFormProps) => {
         return <Heading>{t('Check_info_section_heading')}</Heading>;
 
       default:
-        return <Donate shelters={shelters} />;
+        return <Donate shelters={shelters} t={t} />;
     }
   };
   const renderStep = () => {
     switch (formData.currentPage) {
       case 1:
-        return <Donate shelters={shelters} />;
+        return <Donate dispatch={dispatch} shelters={shelters} t={t} />;
       case 2:
-        return <PersonalInfo />;
+        return <PersonalInfo t={t} dispatch={dispatch} />;
 
       case 3:
-        return <CheckInfo />;
+        return <CheckInfo t={t} dispatch={dispatch} />;
 
       default:
-        return <Donate shelters={shelters} />;
+        return <Donate shelters={shelters} t={t} />;
     }
   };
 

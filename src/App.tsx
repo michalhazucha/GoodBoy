@@ -51,7 +51,6 @@ function App() {
   const [value, setValue] = useState();
   const getValue = (e: ChangeEvent<HTMLInputElement> | any) => {
     e.preventDefault();
-    console.log(e);
     setValue(e.target.textContent);
   };
   const dispatch = useDispatch();
@@ -65,12 +64,12 @@ function App() {
     <Page>
       <Header />
       <LayoutContainer>
-        <Form shelters={shelters} formData={formData} currentPage={currentPage} />
+        <Form shelters={shelters} formData={formData} currentPage={currentPage} dispatch={dispatch} t={t} />
         <ImageSection>
           <img src={MainImage} alt="dog main image"></img>
         </ImageSection>{' '}
       </LayoutContainer>
-      <Footer />
+      <Footer t={t} />
     </Page>
   );
 }

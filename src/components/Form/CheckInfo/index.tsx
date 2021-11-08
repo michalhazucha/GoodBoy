@@ -1,10 +1,11 @@
 import React, { useEffect, FC, Fragment } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { setFormState } from '../../../redux/actions/actiionCreators/shelterActionCreator';
 import { useTranslation } from 'react-i18next';
 /**styles */
 import styled from 'styled-components';
+import { ICheckInfoProps } from '../../../interfaces';
 const FormDataHeading = styled.h3`
   font-family: 'Public Sans', sans-serif;
   font-style: normal;
@@ -38,15 +39,13 @@ const CheckboxLabel = styled.label`
   padding-left: 16px;
 `;
 /**Component */
-const CheckInfo: FC = () => {
+const CheckInfo = ({ t, dispatch }: ICheckInfoProps) => {
   const {
     register,
     formState: { errors, isValid, isDirty },
   } = useForm({
     mode: 'onChange',
   });
-  const dispatch = useDispatch();
-  const { t } = useTranslation();
   useEffect(() => {
     dispatch(setFormState(isValid));
   }, [isValid]);

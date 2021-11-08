@@ -1,14 +1,13 @@
 import React, { useEffect, useState, Fragment } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { IBtn } from '../../../interfaces';
 import { setFormState, setHelpMethod, setShelterIdAction, setValueAction } from '../../../redux/actions/actiionCreators/shelterActionCreator';
 //images
 import paw from '../../../assets/icons/paw.png';
 import wallet from '../../../assets/icons/wallet-icon.png';
-import { useTranslation } from 'react-i18next';
 /**styles */
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 const Row = styled.div`
   display: flex;
   flex-direction: row;
@@ -218,9 +217,7 @@ const HeadingSmall = styled.h5`
   text-align: left;
 `;
 
-const Donate = ({ shelters }: any) => {
-  const dispatch = useDispatch();
-  const { t } = useTranslation();
+const Donate = ({ shelters, t, dispatch }: any) => {
   const {
     register,
     formState: { errors },

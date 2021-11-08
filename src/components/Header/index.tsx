@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -58,10 +58,10 @@ const Header: FC = () => {
       <LayoutContainer>
         <Text>Nadácia GoodBoy</Text>
         <SocialSection>
-          <a href="https://www.facebook.com/GoodRequestCom">
+          <a href="https://www.facebook.com/GoodRequestCom" target="_blank">
             <i className="fa fa-facebook-f"></i>
           </a>
-          <a href="https://www.instagram.com/goodrequest/">
+          <a href="https://www.instagram.com/goodrequest/" target="_blank">
             <i className="fa fa-instagram"></i>
           </a>
         </SocialSection>

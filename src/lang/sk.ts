@@ -38,5 +38,9 @@ const TranslationSK: Object = {
   Button_send: 'Odoslať',
   /*error */
   load_error: 'Nepodarilo sa načítať zoznam útulkov. Prosím skontrolujte svoje internetové pripojenie',
+  /*popup messages */
+  success_response_header: 'Výborne',
+  'Príspevok bol úspešne zaznamenaný': 'príspevok zaznamenaný',
 };
+
 export default TranslationSK;

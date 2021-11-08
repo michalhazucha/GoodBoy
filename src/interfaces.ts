@@ -1,3 +1,5 @@
+import { Dispatch } from 'redux';
+
 export interface IState {
   shelters: IShelter[];
   formData: IFormData;
@@ -29,4 +31,14 @@ export interface IFormProps {
   shelters: [IShelter];
   formData: IFormData;
   currentPage: number;
+  dispatch: Dispatch;
+  t: Function;
+}
+export interface IPersonalInfoProps {
+  dispatch: Dispatch;
+  t: Function;
+}
+export interface ICheckInfoProps {
+  dispatch: Dispatch;
+  t: Function;
 }

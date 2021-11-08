@@ -42,7 +42,6 @@ export const setFormState = (formState: boolean) => {
   return { type: ActionTypes.SetFormState, payload: formState };
 };
 export const setHelpMethod = (val: any) => {
-  console.log('helpMethod:', val);
   return { type: ActionTypes.SetHelpMethod, payload: val };
 };
 export const goToNextPage = () => {

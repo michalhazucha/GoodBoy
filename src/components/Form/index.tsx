@@ -107,6 +107,8 @@ const Form = ({ shelters, formData, currentPage }: IFormProps) => {
             title: <strong>Výborne</strong>,
             html: <span>{JSON.stringify(response.messages[0].message)}</span>,
             icon: 'success',
+            buttonsStyling: true,
+            confirmButtonColor: ' #c4794f',
           });
         }
       })

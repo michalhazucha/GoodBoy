@@ -278,6 +278,7 @@ const Donate = ({ shelters }: any) => {
           <strong className="text-secondary">{helpMethod === 1 ? t('Donate_help_method_non_optional') : t('Donate_help_method_optional')}</strong>
         </Label>
         <SelectBox>
+          {!error ? <SelectLabel>{t('Donate_form_shelter_label')}</SelectLabel> : ''}
           {!error ? (
             <SelectMenu
               id="selectShelter"
@@ -296,7 +297,6 @@ const Donate = ({ shelters }: any) => {
           ) : (
             <Error>{t('load_error')}</Error>
           )}
-          {!error ? <SelectLabel>{t('Donate_form_shelter_label')}</SelectLabel> : ''}
         </SelectBox>
       </Form>
       <HeadingSmall>{t('Donate_form_ammount_label')}</HeadingSmall>

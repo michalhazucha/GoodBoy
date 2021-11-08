@@ -1,5 +1,4 @@
 import { ActionTypes } from '../actionTypes/types';
-import { IShelter } from '../../../interfaces';
 
 export const fetchSheltersAction = () => {
   return {

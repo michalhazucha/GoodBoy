@@ -2,7 +2,6 @@ import { put, takeEvery, all, fork } from 'redux-saga/effects';
 import axios from 'axios';
 import { getSheltersAction, FetchErrorAction } from '../actions/actiionCreators/shelterActionCreator';
 import { ActionTypes } from '../actions/actionTypes/types';
-import { IState } from '../../interfaces';
 
 function* onRecieveShelters() {
   try {

@@ -29,5 +29,7 @@ const TranslationEN: Object = {
   Button_send: 'Submit',
   /*error */
   load_error: 'Failed to load shelter list. Please check your internet connection',
+  /*popup messages */
+  success_response_header: 'Success',
 };
 export default TranslationEN;

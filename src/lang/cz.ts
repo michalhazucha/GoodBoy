@@ -36,8 +36,10 @@ const TranslationCZ: Object = {
   Button_next: 'Pokračovat',
   Button_back: 'Zpět',
   Button_send: 'Odeslat',
-  /**error */
+
   /*error */
   load_error: 'Nepodařilo se načíst seznam útulků. Prosím zkontrolujte své internetové připojení ',
+  /*popup messages */
+  success_response_header: 'Výborne',
 };
 export default TranslationCZ;

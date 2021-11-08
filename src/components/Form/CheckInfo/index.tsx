@@ -59,7 +59,7 @@ const CheckInfo = ({ t, dispatch }: ICheckInfoProps) => {
           <div>
             {formData.shelterName ? (
               <article>
-                <FormDataHeading>{t('Check_info_shelter_chosen')}Najviac mi záleží na útulku</FormDataHeading>
+                <FormDataHeading>{t('Check_info_shelter_chosen')}</FormDataHeading>
                 <FormDataContent>{formData.shelterName}</FormDataContent>
               </article>
             ) : (

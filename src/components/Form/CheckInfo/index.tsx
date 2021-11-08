@@ -67,7 +67,7 @@ const CheckInfo = ({ t, dispatch }: ICheckInfoProps) => {
             )}
             {formData.value ? (
               <article>
-                <FormDataHeading>{t('Check_info_ammount_chosen')}Suma ktorou chcem pomôcť</FormDataHeading>
+                <FormDataHeading>{t('Check_info_ammount_chosen')}</FormDataHeading>
                 <FormDataContent>{formData.value}</FormDataContent>
               </article>
             ) : (
@@ -75,7 +75,7 @@ const CheckInfo = ({ t, dispatch }: ICheckInfoProps) => {
             )}
             {formData.firstName || formData.lastName ? (
               <article>
-                <FormDataHeading>{t('Check_info_name')}Meno a priezvisko</FormDataHeading>
+                <FormDataHeading>{t('Check_info_name')}</FormDataHeading>
                 <FormDataContent>
                   {formData.firstName} {formData.lastName}
                 </FormDataContent>
@@ -85,7 +85,7 @@ const CheckInfo = ({ t, dispatch }: ICheckInfoProps) => {
             )}
             {formData.email ? (
               <article>
-                <FormDataHeading>{t('Check_info_email')}E-mailová adresa</FormDataHeading>
+                <FormDataHeading>{t('Check_info_email')}</FormDataHeading>
                 <FormDataContent>{formData.email}</FormDataContent>
               </article>
             ) : (
@@ -93,7 +93,7 @@ const CheckInfo = ({ t, dispatch }: ICheckInfoProps) => {
             )}
             {formData.phone ? (
               <article>
-                <FormDataHeading>{t('Check_info_phone')}Telefónne čislo</FormDataHeading>
+                <FormDataHeading>{t('Check_info_phone')}</FormDataHeading>
                 <FormDataContent>{formData.phone}</FormDataContent>
               </article>
             ) : (

@@ -1,69 +1,11 @@
 import React, { FC, Fragment, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import PhoneInput from 'react-phone-input-2';
-import { useTranslation } from 'react-i18next';
 import { setEmailAction, setFirstNameAction, setFormState, setLastNameAction, setPhoneNumberAction } from '../../../redux/actions/actiionCreators/shelterActionCreator';
-/**styles */
 import 'react-phone-input-2/lib/style.css';
-import styled from 'styled-components';
 import { IPersonalInfoProps } from '../../../interfaces';
-const InputContainer = styled.div`
-  margin-block: 16px;
-  background: #ffffff;
-  border: 1px solid #dfdfdf;
-  border-radius: 8px;
-  padding: 16px 24px;
-  &:focus-within {
-    border: 1px solid #cd8b65;
-  }
-
-  & label {
-    font-style: normal;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 21px;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    color: #2f2f2f;
-  }
-  input {
-    border: none;
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 21px;
-    color: #9f9f9f;
-    padding-inline: 0;
-    &:focus {
-      border-bottom: 1px solid #9f9f9f8f;
-      box-shadow: none;
-      border-radius: 0;
-      transition: border ease-in-out 0.2s;
-    }
-  }
-  & .flag-dropdown {
-    border: none;
-  }
-`;
-const ErrorMessage = styled.div`
-  font-size: 14px;
-  font-weight: 700;
-  color: #cd8a64;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-`;
-const Subheading = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  font-weight: 800;
-  font-size: 14px;
-  line-height: 19px;
-`;
+/**styles */
+import { Subheading, InputContainer, ErrorMessage } from '../../styles/styles';
 
 const PersonalInfo = ({ t, dispatch }: IPersonalInfoProps) => {
   const {

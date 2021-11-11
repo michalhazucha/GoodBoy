@@ -24,6 +24,9 @@ export interface IShelter {
 export interface IBtn {
   active?: boolean;
 }
+export interface ISelectBox {
+  focused?: boolean;
+}
 export interface IPagePaginatorProps {
   currentPage: Number;
 }

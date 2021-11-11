@@ -2,43 +2,10 @@ import React, { useEffect, FC, Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { setFormState } from '../../../redux/actions/actiionCreators/shelterActionCreator';
-import { useTranslation } from 'react-i18next';
-/**styles */
-import styled from 'styled-components';
 import { ICheckInfoProps } from '../../../interfaces';
-const FormDataHeading = styled.h3`
-  font-family: 'Public Sans', sans-serif;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 14px;
-  line-height: 19px;
-  color: #2f2f2f;
-`;
-const FormDataContent = styled.p`
-  font-family: 'Public Sans', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  color: #2f2f2f;
-`;
-const CheckboxButton = styled.input`
-  background: #ffffff;
-  border: 1px solid #f3e2d9;
-  box-sizing: border-box;
-  border-radius: 8px;
-`;
-const CheckboxLabel = styled.label`
-  font-family: 'Public Sans', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 21px;
-  color: #2f2f2f;
-  opacity: 0.8;
-  padding-left: 16px;
-`;
-/**Component */
+/**styles */
+import { FormDataHeading, FormDataContent, CheckboxButton, CheckboxLabel } from '../../styles/styles';
+
 const CheckInfo = ({ t, dispatch }: ICheckInfoProps) => {
   const {
     register,

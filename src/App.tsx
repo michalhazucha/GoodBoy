@@ -1,7 +1,7 @@
 import React, { useEffect, useState, ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import i18n from 'i18next';
-import { initReactI18next, Translation, useTranslation } from 'react-i18next';
+import { initReactI18next, useTranslation } from 'react-i18next';
 import Form from './components/Form';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -12,26 +12,7 @@ import styled from 'styled-components';
 import TranslationSK from './lang/sk';
 import TranslationCZ from './lang/cz';
 import TranslationEN from './lang/en';
-
-const LayoutContainer = styled.div`
-  margin: auto;
-  max-width: 1140px;
-  display: flex;
-  flex-direction: row;
-  padding: 130px 0 240px 0;
-`;
-const Page = styled.div`
-  background: #e5e5e5;
-`;
-const ImageSection = styled.div`
-  & img {
-    max-width: 364px;
-    width: 100%;
-    @media only screen and (max-width: 768px) {
-      display: none;
-    }
-  }
-`;
+import { AppBody, AppContainer, ImageSection } from './components/styles/styles';
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -48,11 +29,6 @@ i18n
 
 function App() {
   const { t } = useTranslation();
-  const [value, setValue] = useState();
-  const getValue = (e: ChangeEvent<HTMLInputElement> | any) => {
-    e.preventDefault();
-    setValue(e.target.textContent);
-  };
   const dispatch = useDispatch();
   /*Init shelters */
   useEffect(() => {
@@ -61,16 +37,16 @@ function App() {
   const { shelters, formData } = useSelector((state: any) => state.state);
   const { currentPage } = useSelector((state: any) => state.state.formData);
   return (
-    <Page>
+    <AppBody>
       <Header />
-      <LayoutContainer>
+      <AppContainer>
         <Form shelters={shelters} formData={formData} currentPage={currentPage} dispatch={dispatch} t={t} />
         <ImageSection>
           <img src={MainImage} alt="dog main image"></img>
         </ImageSection>{' '}
-      </LayoutContainer>
+      </AppContainer>
       <Footer t={t} />
-    </Page>
+    </AppBody>
   );
 }
 
